@@ -7,10 +7,11 @@
     <title>index.html</title>
 </head>
 <body>
-    <h1>인덱스 페이지 입니다(김구라)</h1>
-    <button id="getBtn">한명 뽑기</button>
-    <p id="result"></p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut obcaecati, fugiat harum voluptatibus beatae explicabo, neque commodi corporis repellat a esse sunt necessitatibus illo fuga officiis quas ad tempora rerum!</p>
+    <h1>복불복 게임(나만 아니면 돼~~)</h1>
+    <button id="getBtn">아이스크림을 살 사람은 누구?</button> <br><br>
+    
+    당첨자 확인 : <spam id="result"></spam>
+    
     <script>
         let names=["강륜화","강민경","강민재","강희은","고지은",
         "고현석","김규환","김나현","김다연","김정솔",
@@ -26,7 +27,13 @@
             let ranNum=Math.floor(Math.random()*31);
             // names 배열에서 랜덤한 인덱스에 해당하는 이름을 p 요소에 출력하기 
             document.querySelector("#result").innerText=names[ranNum];
+            text();
+
         });
+        function text(){
+            alert("축하합니다..")
+        }
+        
     </script>
 </body>
 </html>
