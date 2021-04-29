@@ -7,10 +7,13 @@
     <title>index.html</title>
 </head>
 <body>
-    <h1>인덱스 페이지 입니다(김구라)</h1>
-    <button id="getBtn">한명 뽑기</button>
-    <p id="result"></p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut obcaecati, fugiat harum voluptatibus beatae explicabo, neque commodi corporis repellat a esse sunt necessitatibus illo fuga officiis quas ad tempora rerum!</p>
+    <h1>입력한 사람 명수 만큼 뽑기</h1>
+    <input type="number" id="inputNum" placeholder="몇명을 뽑을까요?">
+    <button id="getBtn">뽑기</button>
+    <ul id="memUl">
+
+    </ul>
+    
     <script>
         let names=["강륜화","강민경","강민재","강희은","고지은",
         "고현석","김규환","김나현","김다연","김정솔",
@@ -19,14 +22,32 @@
         "이은정","이지현","이창훈","이충근","전하은",
         "전준형","정재은","정주연","지은우","최해리",
         "김구라"];
-
+        
+        // 입력한 사람 명수만큼 멤버를 뽑는 프로그램을 작성해 보았습니다.  
         document.querySelector("#getBtn").addEventListener("click", function(){
             console.log("버튼이 눌러졌네?");
+            // 적은 명수의 밸류값 받아와서 변수에 저장
+            let num=document.querySelector("#inputNum").value;
+            // 중복 선택 방지를 위해 names와 같은 변수 하나를 함수 안에 선언
+            let selectNames=names;
+            
+            // 사람이 총 num 번 나오게 하는 반복문 작성
+            for(let i=0; i<num; i++){
             // 0 ~ 30 사이의 랜덤한 정수 얻어내기
-            let ranNum=Math.floor(Math.random()*31);
-            // names 배열에서 랜덤한 인덱스에 해당하는 이름을 p 요소에 출력하기 
-            document.querySelector("#result").innerText=names[ranNum];
+            let ranNum=Math.floor(Math.random()*(31-i));
+            // li 요소 생성후
+            const memLi=document.createElement("li");
+            // li 요소안에 선택된 멤버 이름 innerText로 넣기
+            memLi.innerText=selectNames[ranNum];
+            // div 안에 p 요소 삽입
+            document.querySelector("#memUl").append(memLi);
+            // 중복 선택 방지를 위해, 배열의 선택된 멤버 방을 삭제
+            selectNames.splice(ranNum, 1);
+            }
+            
         });
+
+
     </script>
 </body>
 </html>
