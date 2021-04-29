@@ -5,28 +5,80 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index.html</title>
+    <style>
+        #container{
+            width: 1000px;
+            height: 700px;
+            background-color: ivory;
+            padding-top: 10px;
+        }
+        #index{
+            text-align: center;
+            color: #333;
+            margin-top: 30px;
+        }
+
+        
+        #bear{
+            display: block;
+            width: 400px;
+            height: 400px;
+            margin: auto;
+        }
+        #getBtn{
+            width: 100px;
+            height: 40px;
+            background-color: rgb(22, 35, 109);
+            margin-left: 450px;
+            margin-bottom:10px;
+            color: white;
+        }
+        #result{
+            text-align: center;
+            color: #333;
+            font: bold 30px consolas;
+        }
+        #who{
+            text-align: center;
+        }
+        
+        
+    </style>
 </head>
 <body>
-    <h1>인덱스 페이지 입니다(김구라)</h1>
-    <button id="getBtn">한명 뽑기</button>
-    <p id="result"></p>
-    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut obcaecati, fugiat harum voluptatibus beatae explicabo, neque commodi corporis repellat a esse sunt necessitatibus illo fuga officiis quas ad tempora rerum!</p>
-    <script>
-        let names=["강륜화","강민경","강민재","강희은","고지은",
-        "고현석","김규환","김나현","김다연","김정솔",
-        "김희정","석우현","신현미","양우람","유형우",
-        "윤혜림","이근영","이다영","이민영","이세란",
-        "이은정","이지현","이창훈","이충근","전하은",
-        "전준형","정재은","정주연","지은우","최해리",
-        "김구라"];
+    <div id="container">
+        <h1 id="index">Lucky Draw</h1>
+        
+        <div id="random">
+            
+            <p id="gift">
+                
+                <img id="bear" src="https://c.tenor.com/T2Pfr3bEQkQAAAAi/birthday-present-gift.gif" alt="선물박스에서 곰돌이가 나오는 이미지">
+                <button id="getBtn">한명 뽑기</button><br/>
+                <div id="result">
+                    <p id="who">한명뽑기를 눌러보세요<br/>
+                    누가 당첨이 될까요?</p>
+                </div>
+            </p>
+            
+            <script>
+                let names=["강륜화","강민경","강민재","강희은","고지은",
+                "고현석","김규환","김나현","김다연","김정솔",
+                "김희정","석우현","신현미","양우람","유형우",
+                "윤혜림","이근영","이다영","이민영","이세란",
+                "이은정","이지현","이창훈","이충근","전하은",
+                "전준형","정재은","정주연","지은우","최해리",
+                "김구라"];
 
-        document.querySelector("#getBtn").addEventListener("click", function(){
-            console.log("버튼이 눌러졌네?");
-            // 0 ~ 30 사이의 랜덤한 정수 얻어내기
-            let ranNum=Math.floor(Math.random()*31);
-            // names 배열에서 랜덤한 인덱스에 해당하는 이름을 p 요소에 출력하기 
-            document.querySelector("#result").innerText=names[ranNum];
-        });
-    </script>
+                document.querySelector("#getBtn").addEventListener("click", function(){
+                    console.log("버튼이 눌러졌네?");
+                    // 0 ~ 30 사이의 랜덤한 정수 얻어내기
+                    let ranNum=Math.floor(Math.random()*31);
+                    // names 배열에서 랜덤한 인덱스에 해당하는 이름을 div 요소에 출력하기 
+                    document.querySelector("#result").innerText=names[ranNum];
+                });
+            </script>
+        </div>
+    </div>
 </body>
 </html>
