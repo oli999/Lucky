@@ -5,12 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>index.html</title>
+    <style>
+        h1{
+            background-color: burlywood;
+            color: rebeccapurple;
+        }
+        #result{
+            font-size: 20px;
+            font-weight: bold;
+        }
+        img{
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <h1>인덱스 페이지 입니다(김구라)</h1>
-    <button id="getBtn">한명 뽑기</button>
+    <fieldset> 
+        인원수 고르기 <br>
+        <input type="radio" name="num" value="one" id="one" checked>1명
+        <input type="radio" name="num" value="two" id="two">2명
+    </fieldset>
+
+    <br>
+    <button id="getBtn">뽑기</button>
     <p id="result"></p>
+    <img src="emoticon.jpg" id="emo">
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ut obcaecati, fugiat harum voluptatibus beatae explicabo, neque commodi corporis repellat a esse sunt necessitatibus illo fuga officiis quas ad tempora rerum!</p>
+    
     <script>
         let names=["강륜화","강민경","강민재","강희은","고지은",
         "고현석","김규환","김나현","김다연","김정솔",
@@ -24,9 +46,18 @@
             console.log("버튼이 눌러졌네?");
             // 0 ~ 30 사이의 랜덤한 정수 얻어내기
             let ranNum=Math.floor(Math.random()*31);
+            let ranNum2=Math.floor(Math.random()*31);
             // names 배열에서 랜덤한 인덱스에 해당하는 이름을 p 요소에 출력하기 
-            document.querySelector("#result").innerText=names[ranNum];
+            if(document.querySelector("#one").checked){
+                document.querySelector("#result").innerText=names[ranNum]+"님 당첨 되셨습니다!";
+                document.querySelector("#emo").style.display="block";
+            }else if(document.querySelector("#two").checked){
+                document.querySelector("#result").innerText=names[ranNum]+"님 " +names[ranNum2] + "님 당첨 되셨습니다!";
+                document.querySelector("#emo").style.display="block";
+            };
+            
         });
+        
     </script>
 </body>
 </html>
